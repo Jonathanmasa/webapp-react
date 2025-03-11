@@ -1,5 +1,7 @@
 // importiamo parte LInk del modulo react-router
 import { Link } from "react-router-dom"
+// import del componente di listato
+import ReviewCard from './../components/ReviewCard';
 
 const FilmPage = () => {
     return (
@@ -29,6 +31,8 @@ const FilmPage = () => {
                      <h4>Our community reviews</h4>
                  </header>
                 
+                {/* Reviews qui */}
+                <p><ReviewCard/></p>
                 
              </section>
  
