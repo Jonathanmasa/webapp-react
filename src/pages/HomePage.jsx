@@ -7,19 +7,38 @@ import FilmCard from '../components/FilmCard';
 
 const HomePage = () => {
 
+    // setto stato del componente
+    const [films, setFilms] = useState([]);
+
     // funzione di fetching dei dati lista film index
-    const fetchFilm = () => {
+    const fetchFilms = () => {
         axios.get("http://localhost:3000/api/films")
         .then(
             res => {
-                console.log(res.data);
+                // console.log(res.data);
+                setFilms(res.data)
                 
             }
         )
-        .catch()
+        .catch(err => console.log(err)
+        )
     }
 
-    fetchFilm();
+    // fetchFilm();
+    useEffect(fetchFilms, []);
+
+    // funzione di rendering delle card dei film 
+    const renderFilms = () => {
+        return films.map (
+            film => {
+                return (
+                    <div className='col' key={film.id}>
+                        <FilmCard filmProp={film} />
+                    </div>
+                )
+            }
+        )
+    }
 
     return (
         <>
@@ -28,7 +47,7 @@ const HomePage = () => {
  
              <div className="row row-cols-3 mt-4 ">
                 <p>
-                    <FilmCard/>
+                    {renderFilms()}
                 </p>
                  
              </div>
