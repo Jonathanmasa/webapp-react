@@ -5,9 +5,9 @@ const ReviewCard = ({ reviewProp }) => {
     return (
         <div className="card mb-4">
             <div className="card-body">
-                <p className="card-text">
+                <div className="card-text">
                     {text}
-                </p>
+                </div>
                 <strong>
                     Vote: {vote}
                 </strong>

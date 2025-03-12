@@ -46,9 +46,9 @@ const HomePage = () => {
              <h2><i>The nerdest movie community</i></h2>
  
              <div className="row row-cols-3 mt-4 ">
-                <p>
+                <div>
                     {renderFilms()}
-                </p>
+                </div>
                  
              </div>
         </>

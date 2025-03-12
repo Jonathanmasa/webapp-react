@@ -1,5 +1,5 @@
 // Importiamo il modulo react-router
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 // Import del componente ReviewCard
 import ReviewCard from "./../components/ReviewCard";
 // Import di axios
@@ -11,6 +11,9 @@ const FilmPage = () => {
   // Recuperiamo l'id del film richiesto
   const { id } = useParams();
 
+   // utilizzo per il redirect (useNavigate)
+   const redirect = useNavigate();
+
   // Stato per il film
   const [film, setFilm] = useState(null);
 
@@ -21,7 +24,10 @@ const FilmPage = () => {
       .then((res) => {
         setFilm(res.data);
       })
-      .catch((err) => console.log(err));
+      .catch(err => {
+        console.log(err);
+        if (err.status === 404) redirect("/404")
+    })
   };
 
   // Effetto per chiamare l'API quando cambia l'ID
@@ -54,7 +60,7 @@ const FilmPage = () => {
             <h3 className="text-muted">
               <i>By {film.director}</i>
             </h3>
-            <p>{film.abstract}</p>
+            <div>{film.abstract}</div>
           </div>
         </div>
       </header>
