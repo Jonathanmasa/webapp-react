@@ -1,25 +1,53 @@
 // importiamo parte LInk del modulo react-router
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 // import del componente di listato
 import ReviewCard from './../components/ReviewCard';
+// uso axios
+import axios from 'axios'
+ // uso di state e effect
+import { useState, useEffect } from "react"
 
 const FilmPage = () => {
+    
+        // recuperiamo l'id del film richiesto
+        const { id } = useParams();
+ 
+        // settiamo lo stato del componente
+        const [film, setFilm] = useState({});
+    
+        // funzione di chiamata all'API per il film richiesto
+        const fectFilm = () => {
+            axios.get("http://localhost:3000/api/films/" + id)
+                .then(
+                    res => {
+                        // console.log(res.data);
+                        setFilm(res.data)
+                    }
+                )
+                .catch(err => console.log(err)
+                )
+        }
+    
+    
+        // chiamata all'API al montaggio del componente
+        useEffect(fectFilm, [])
+
     return (
         <>
          <header id="film" className="border-bottom border-1 mb-3">
                  <div className="d-flex mb-3">
                      <img className="film-img"
-                         src="http://localhost:3000/img/films/the_godfather.jpg"
-                         alt="descrizione img" />
+                         src={film.image}
+                         alt={film.title} />
                      <div>
-                         <h1>Titolo film</h1>
+                         <h1>{film.title}</h1>
                          <h3 className="text-muted">
                              <i>
-                                 By Nome autore
+                                 By {film.director}
                              </i>
                          </h3>
                          <p>
-                             Abscract lorem ipsm dolor sit amet...
+                            {film.abstract}
                          </p>
                      </div>
                  </div>
