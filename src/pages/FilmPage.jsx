@@ -9,7 +9,7 @@ const FilmPage = () => {
          <header id="film" className="border-bottom border-1 mb-3">
                  <div className="d-flex mb-3">
                      <img className="film-img"
-                         src="the_godfather.jpg"
+                         src="http://localhost:3000/img/films/the_godfather.jpg"
                          alt="descrizione img" />
                      <div>
                          <h1>Titolo film</h1>
