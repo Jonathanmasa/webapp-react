@@ -7,14 +7,14 @@ import { Link } from "react-router-dom"
      return (
          <div className="card mb-4">
              <img className="card-img-top"
-                 src={image}
+                 src={image && <img className="card-img-top" src={image} alt={title} />}
                  alt={title} />
              <div className="card-body">
                  <h5 className={title}>
                      Titolo del film
                  </h5>
                  <address><i>
-                     By {director}
+                     By {director || 'Anonymous'}
                  </i></address>
                  <p className="card-text">
                     {abstract}
