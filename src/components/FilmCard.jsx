@@ -1,26 +1,27 @@
-import { Link } from "react-router-dom"
- 
- 
- const FilmCard = ({ filmProp }) => {
-    const {id, title, image, director, abstract} = filmProp
+import { Link } from "react-router-dom";
 
-     return (
-         <div className="card mb-4">
-             <img className="card-img-top" src={image} alt={title} />
-             <div className="card-body">
-                 <h5 className= 'title'>
-                     {title}
-                 </h5>
-                 <address><i>
-                     By {director || 'Anonymous'}
-                 </i></address>
-                 <div className="card-text">
-                    {abstract}
-                 </div>
-                 <Link to={`films/${id}`} className="btn btn-primary">See more</Link>
-             </div>
-         </div>
-     )
- }
- 
- export default FilmCard
+const FilmCard = ({ filmProp }) => {
+  const { id, title, image, director, abstract } = filmProp;
+
+  return (
+    <div className="card film-card shadow-lg border-0">
+      <img
+        className="card-img-top film-card-img"
+        src={image || "placeholder.jpg"}
+        alt={title}
+      />
+      <div className="card-body">
+        <h5 className="card-title text-primary fw-bold">{title}</h5>
+        <address className="text-white">
+          <i>By {director || "Anonymous"}</i>
+        </address>
+        <p className="card-text">{abstract}</p>
+        <Link to={`films/${id}`} className="btn btn-outline-primary w-100">
+          See more
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+export default FilmCard;

@@ -1,30 +1,217 @@
+/* General */
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url("https://img.freepik.com/foto-gratuito/collage-di-sfondo-del-film_23-2149876032.jpg?t=st=1741799254~exp=1741802854~hmac=d07725f4e94049646936239ac4b3ef937b78e4f4536185cf3ef5f3adb528ac93&w=740");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+/* HOME PAGE */
+/* Overlay e Spinner */
 .overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1050;
     display: flex;
     align-items: center;
     justify-content: center;
+    backdrop-filter: blur(5px);
 }
 
+/* Spinner */
 .spinner-border {
-    width: 200px;
-    height: 200px;
+    width: 80px;
+    height: 80px;
+    border-width: 6px;
     font-size: 2rem;
+    animation: spin 1.2s linear infinite;
 }
 
-.card-img-top {
-    height: 300px;
+/* Film Card */
+.film-card {
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    background: rgba(24, 24, 52, 0.8);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    min-height: 450px; 
+    height: 100%;
+}
+
+/* Hover effetti card */
+.film-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Immagine della Card */
+.film-card-img {
+    width: 100%;   
+    height: 80%;   
     object-fit: cover;
-    object-position: top;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    transition: transform 0.3s ease-in-out;
 }
 
+/* Hover su immagine card */
+.film-card:hover .film-card-img {
+    transform: scale(1.05);
+}
+
+/* Card Title */
+.card-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+    flex-grow: 1;
+}
+
+/* Card Text */
+.card-text {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    min-height: 60px;
+    flex-grow: 1;
+}
+
+/* Button */
+.btn-outline-primary {
+    border-radius: 25px;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Hover su bottone */
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Film Image */
 .film-img {
-    max-height: 200px;
+    width: 100%; 
+    height: auto;
     margin-right: 2rem;
+    border-radius: 10px;
+    object-fit: cover; 
 }
 
+/* Card Image */
+.card-img-top {
+    width: 100%;  
+    height: 450px;  
+    object-fit: cover; 
+    object-position: center; 
+    border-radius: 10px;
+    margin: 0 auto;   
+}
+
+/* Grid Layout */
+.row {
+    justify-content: center;
+}
+
+.row-cols-3 > .col {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    margin: 10px;
+}
+
+/* FILM PAGE */
+/* Film Header */
+#film {
+    padding: 30px;
+    background: rgba(24, 24, 52, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+#film:hover {
+    transform: scale(1.03);
+}
+
+#film h1 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #6a6262;
+    margin-bottom: 0.5rem;
+}
+
+#film h3 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #777;
+}
+
+#film div {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #5f5c5c;
+    margin-top: 10px;
+}
+
+/* Film Image */
+.film-img {
+    width: 250px;
+    height: 350px;
+    object-fit: cover; 
+    border-radius: 10px;
+    margin-right: 1.5rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.film-img:hover {
+    transform: scale(1.05);
+}
+
+/* Reviews Section */
+#reviews {
+    margin-top: 40px;
+    padding: 25px;
+    background: rgba(24, 24, 52, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+#reviews h4 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #6a6262;
+    margin-bottom: 15px;
+}
+
+#reviews div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Buttons */
+.btn-secondary {
+    padding: 12px 25px;
+    border-radius: 25px;
+    transition: all 0.3s ease-in-out;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.btn-secondary:hover {
+    background-color: #495057;
+    color: white;
+}

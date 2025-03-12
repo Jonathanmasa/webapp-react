@@ -57,7 +57,7 @@ const FilmPage = () => {
           />
           <div>
             <h1>{film.title}</h1>
-            <h3 className="text-muted">
+            <h3 className="text-white">
               <i>By {film.director}</i>
             </h3>
             <div>{film.abstract}</div>
