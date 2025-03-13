@@ -6,6 +6,8 @@ import ReviewCard from "./../components/ReviewCard";
 import axios from "axios";
 // Import di useState e useEffect
 import { useState, useEffect } from "react";
+// import del componente di form
+import ReviewForm from './../components/ReviewForm';
 
 const FilmPage = () => {
   // Recuperiamo l'id del film richiesto
@@ -70,6 +72,11 @@ const FilmPage = () => {
           <h4>Our community reviews</h4>
         </header>
         <div>{renderReviews()}</div>
+      </section>
+
+
+      <section>
+          <ReviewForm film_id={film.id} />
       </section>
 
       <footer className="border-top border-1 pt-2 mb-3 d-flex justify-content-end">
