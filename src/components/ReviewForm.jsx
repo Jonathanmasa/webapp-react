@@ -29,22 +29,22 @@ import axios from 'axios';
      }
  
      return (
-         <div className="card">
+         <div className="card form-card">
              <header className="card-header">
-                 <h5>Add review</h5>
+                 <h5 className='text-primary'>Add review</h5>
              </header>
              <div className="card-body">
                  <form onSubmit={submitReview}>
                      <div className="form-group">
-                         <label>Name</label>
+                         <label className='text-primary'>Name</label>
                          <input type="text" name="name" className="form-control" value={formData.name} onChange={setFieldValue} />
                      </div>
                      <div className="form-group">
-                         <label>Review</label>
+                         <label className='text-primary'>Review</label>
                          <textarea className="form-control" name="text" value={formData.text} onChange={setFieldValue} ></textarea>
                      </div>
                      <div className="form-group">
-                         <label>Vote</label>
+                         <label className='text-primary'>Vote</label>
                          <input type="number" min="1" max="5" className="form-control" name='vote' value={formData.vote} onChange={setFieldValue} />
                      </div>
                      <div className="d-flex justify-content-end pt-3">

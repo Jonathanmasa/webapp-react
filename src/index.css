@@ -67,6 +67,10 @@ body {
     transform: scale(1.05);
 }
 
+.form-card {
+    background: rgba(24, 24, 52, 0.8);
+}
+
 /* Card Title */
 .card-title {
     font-size: 1.6rem;
