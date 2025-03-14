@@ -2,6 +2,7 @@
 import HomePage from './pages/HomePage';
 import FilmPage from './pages/FilmPage';
 import NotFoundPage from './pages/NotFoundPage';
+import CreateFilmPage from './pages/CreateFilmPage';
 
 // importiamo il layout
 import DefaultLayout from './layouts/DefaultLayout';
@@ -16,6 +17,7 @@ function App() {
           <Routes>
               <Route element={<DefaultLayout />}>
                   <Route index path="/" element={<HomePage />} />
+                  <Route path="/films/create" element={<CreateFilmPage />} />
                   <Route path="/films/:id" element={<FilmPage />} />
                   <Route path="*" element={<NotFoundPage />} />
               </Route>
